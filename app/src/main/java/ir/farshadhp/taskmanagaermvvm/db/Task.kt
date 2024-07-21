@@ -1,6 +1,5 @@
 package ir.farshadhp.taskmanagaermvvm.db
 
-
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
