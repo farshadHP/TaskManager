@@ -9,3 +9,5 @@ Design and develop a personal task manager app that allows users to add, update,
 * [retrofit2] - fetch data from api Library (developing)
 
 
+![alt text](https://github.com/farshadHP/TaskManager/blob/master/Screenshot_20240722-002538_TaskManagaer%20MVVM.jpg)
+![alt text](https://github.com/farshadHP/TaskManager/blob/master/Screenshot_20240722-002627_TaskManagaer%20MVVM.jpg)
