@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("kotlin-kapt")
 }
 
 android {
@@ -66,4 +67,18 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    //room
+    implementation ("androidx.room:room-ktx:2.6.1")
+    kapt ("androidx.room:room-compiler:2.6.1")
+    androidTestImplementation ("androidx.room:room-testing:2.6.1")
+    // Lifecycle components
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.3")
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.8.3")
+    implementation ("androidx.lifecycle:lifecycle-common-java8:2.8.3")
+    // Kotlin components
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    // navigation
+    implementation("androidx.navigation:navigation-compose:2.4.0-alpha06")
+
 }
