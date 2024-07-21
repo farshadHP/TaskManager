@@ -1,4 +1,4 @@
-package ir.farshadhp.taskmanagaermvvm.ui
+package ir.farshadhp.taskmanagaermvvm.vm
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -42,7 +42,7 @@ class DetailViewModel(
                     selectId.value = it?.id ?: -1
                     if (selectId.value != -1L) {
                         taskText.value = it?.title ?: ""
-                        taskTime.value = it?.time ?: ""
+                        taskTime.value = it?.description ?: ""
                     }
                 }
             }
@@ -66,7 +66,7 @@ class DetailViewModel(
 
 data class DetailViewState(
     val task: String = "",
-    val time: String = "",
+    val descrption: String = "",
     val selectId: Long = -1L,
 )
 

@@ -16,6 +16,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import ir.farshadhp.taskmanagaermvvm.db.Task
+import ir.farshadhp.taskmanagaermvvm.vm.DetailViewModel
+import ir.farshadhp.taskmanagaermvvm.vm.DetailViewModelFactory
 
 @Composable
 fun DetailScreen(
@@ -30,7 +32,7 @@ fun DetailScreen(
     DetailScreenComponent(
         taskText = state.task,
         onTaskTextChange = { viewModel.onTextChange(it) },
-        timeText = state.time,
+        timeText = state.descrption,
         onTimeTextChange = { viewModel.onTimeChange(it) },
         onNavigate = { onNavigate() },
         onSaveTask = { viewModel.insert(it) },

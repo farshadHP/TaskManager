@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class Task(
     val title: String,
-    val time: String,
+    val description: String,
     val isComplete: Boolean = false,
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
