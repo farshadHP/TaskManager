@@ -88,9 +88,9 @@ fun DetailScreenComponent(
         )
         Spacer(modifier = Modifier.size(16.dp))
         Button(onClick = {
-//            val deadLineTemp = (LocalDateTime.now().plusDays(deadlineText.toLong()).atZone(ZoneId.systemDefault()).toEpochSecond() * 1000 ).toString()
-            val deadLineTemp = (LocalDateTime.now().plusSeconds(10).atZone(ZoneId.systemDefault())
-                .toEpochSecond() * 1000).toString()
+            val deadLineTemp = (LocalDateTime.now().plusDays(deadlineText.toLong()).atZone(ZoneId.systemDefault()).toEpochSecond() * 1000 ).toString()
+//            val deadLineTemp = (LocalDateTime.now().plusSeconds(10).atZone(ZoneId.systemDefault())
+//                .toEpochSecond() * 1000).toString()
             val task = if (isTaskEdit) Task(taskText, descriptionText, deadlineText, deadLineTemp)
             else Task(taskText, descriptionText, deadlineText, deadLineTemp, id = selectedId)
             onSaveTask(task)
