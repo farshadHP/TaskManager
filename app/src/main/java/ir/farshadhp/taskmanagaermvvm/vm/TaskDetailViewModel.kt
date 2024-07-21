@@ -17,6 +17,8 @@ class DetailViewModel(
 ) : ViewModel() {
     private val taskText = MutableStateFlow("")
     private val taskTime = MutableStateFlow("")
+    private val taskDeadLine = MutableStateFlow("")
+    private val taskDeadLineEpoc = MutableStateFlow("")
     private val selectId = MutableStateFlow(-1L)
 
     private val _state = MutableStateFlow(DetailViewState())
@@ -25,8 +27,8 @@ class DetailViewModel(
 
     init {
         viewModelScope.launch {
-            combine(taskText, taskTime, selectId) { text, time, id ->
-                DetailViewState(text, time, id)
+            combine(taskText, taskTime, taskDeadLine, taskDeadLineEpoc, selectId) { text, time, deadline, deadlineEpoc, id ->
+                DetailViewState(text, time, deadline, deadlineEpoc, id )
             }.collect {
                 _state.value = it
             }
@@ -43,6 +45,7 @@ class DetailViewModel(
                     if (selectId.value != -1L) {
                         taskText.value = it?.title ?: ""
                         taskTime.value = it?.description ?: ""
+                        taskDeadLine.value = it?.deadline ?: ""
                     }
                 }
             }
@@ -58,6 +61,10 @@ class DetailViewModel(
         taskTime.value = newText
     }
 
+    fun onDeadlineChange(newText: String) {
+        taskDeadLine.value = newText
+    }
+
     fun insert(task: Task) = viewModelScope.launch {
         taskDataSource.insertTask(task)
     }
@@ -66,7 +73,9 @@ class DetailViewModel(
 
 data class DetailViewState(
     val task: String = "",
-    val descrption: String = "",
+    val description: String = "",
+    val deadline: String = "",
+    val deadlineEpoc: String = "",
     val selectId: Long = -1L,
 )
 

@@ -24,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import ir.farshadhp.taskmanagaermvvm.db.Task
 
 @Composable
@@ -53,7 +54,8 @@ fun TaskItem(
                 Text(text = task.title, color = Color.White)
                 Spacer(modifier = Modifier.size(16.dp))
                 Text(text = task.description, color = Color.LightGray)
-
+                Spacer(modifier = Modifier.size(16.dp))
+                Text(text = task.deadline + " Days remaining", color = Color.White, fontSize = 12.sp)
             }
 //            Spacer(modifier = Modifier.size(16.dp))
             IconButton(onClick = { onDelete(task) }) {

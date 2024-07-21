@@ -8,6 +8,7 @@ import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.rememberNavController
 import ir.farshadhp.taskmanagaermvvm.ui.DetailScreen
 import ir.farshadhp.taskmanagaermvvm.ui.HomeScreen
+import ir.farshadhp.taskmanagaermvvm.util.AndroidAlarmScheduler
 
 sealed class NavRoute(val route: String) {
     object Home : NavRoute("home_route")
@@ -15,7 +16,7 @@ sealed class NavRoute(val route: String) {
 }
 
 @Composable
-fun TaskNavHost() {
+fun TaskNavHost(scheduler: AndroidAlarmScheduler) {
     val navController = rememberNavController()
 
     NavHost(
@@ -33,7 +34,7 @@ fun TaskNavHost() {
             NavRoute.Detail.route + "/{id}",
             arguments = listOf(navArgument("id") { type = NavType.LongType }),
         ) {
-            DetailScreen(selectedId = it.arguments?.getLong("id") ?: -1) {
+            DetailScreen(selectedId = it.arguments?.getLong("id") ?: -1, scheduler) {
                 navController.navigateUp()
             }
         }
